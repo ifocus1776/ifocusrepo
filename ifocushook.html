@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://hook.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://hook.io/js/jquery.rumble.js"></script>
+    <script type="text/javascript" src="https://hook.io/js/jquery.hoverIntent.js"></script>
+    <script type="text/javascript" src="https://hook.io/js/jquery.scrollTo.js"></script>
+    <link href="https://hook.io/css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
+    <link href="https://hook.io/css/font-awesome.css" media="all" rel="stylesheet" type="text/css">
+    <link href="https://hook.io/themes/debug/css/jumbotron-narrow.css" media="all" rel="stylesheet" type="text/css">
+    <link href="https://hook.io/octicons/octicons.css" media="all" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <title>ifocus1776/ifocushook</title>
+    <link href="https://hook.io/css/social.css" media="all" rel="stylesheet" type="text/css">
+    <script style="text/javascript">
+      $(document).ready(function(){
+        $('.footerNav img').jrumble({
+          speed: 100
+        });
+        $('.footerNav img').hover(function(){
+          $(this).trigger('startRumble');
+        }, function(){
+          $(this).trigger('stopRumble');
+        });
+        
+        $('.themeSelector').on("change", function(){
+          $('.themeForm').submit();
+        });
+      });
+    </script>
+    <style>
+    /* Sticky footer styles
+          -------------------------------------------------- */
+
+          html,
+          body {
+            height: 100%;
+            /* The html and body elements cannot have any padding or margin. */
+          }
+
+          /* Wrapper for page content to push down footer */
+          #wrap {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            /* Negative indent footer by it's height */
+            margin: 0 auto -60px;
+          }
+
+          /* Set the fixed height of the footer here */
+          #push,
+          #footer {
+            height: 12px;
+          }
+          #footer {
+            padding-top:20px;
+            padding-left:10px;
+            background-color: #000000;
+            color: #FFFFFF;
+          }
+
+          /* Lastly, apply responsive CSS fixes as necessary */
+          @media (max-width: 600px) {
+            #footer {
+              margin-left: -20px;
+              margin-right: -20px;
+              padding-left: 20px;
+              padding-right: 20px;
+            }
+          }
+
+          .counter {
+            font-size: 12px;
+          }
+          
+          .run-icon {
+            height: 32px;
+            width: 32px;
+            padding: 0px;
+            margin: 0px;
+          }
+
+          form legend {
+            position: relative;
+          }
+          
+          
+          .header {
+            vertical-align: bottom;
+            position: relative;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .jumbotron {
+            background-color: #FFFFFF;
+            padding-bottom: 0px;
+          }
+          
+          .gist pre,
+          .gist code {
+              font: inherit;
+              white-space: pre;
+          }
+          
+          .selectTheme {
+          }
+
+     .hookDocs .content {
+       display: none;
+     }
+     .hookDocs .content p {
+       font-size: 20px;
+     }
+
+     .hookOutput {
+       font-size:14px;
+     }
+
+     .hookDebugOutput {
+       width: 550px;
+     }
+
+     .hookOptions {
+       text-align: left;
+       font-size:26px;
+     }
+
+     .hookOptions legend {
+       font-size:36px;
+     }
+
+     .hookResult {
+       font-size:22px;
+       text-align: left;
+     }
+
+     .notice {
+       font-size:22px;
+     }
+
+     .hookResult textarea {
+       font-size:16px;
+       width: 100%;
+     }
+
+     h2 span.success {
+       color: rgb(68, 199, 68);
+     }
+
+     h2 span.message.error{
+       color: rgb(255, 2, 2);
+     }
+
+     .hookForm {
+       text-align: left;
+       width: 500px;
+     }
+
+     .testForm {
+       text-align: left;
+       width: 500px;
+     }
+
+     .gistEmbed {
+     }
+
+     p.smaller {
+       font-size: 16px;
+     }
+      div {
+       /* font-size: 18px; */
+     }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div id="header" class="header">
+        <div style="float: left;bottom: 10px;">
+          <a href="https://hook.io/"><img src="https://hook.io/img/logo.png"></a>
+        </div>
+        <div align="right" style="bottom: 0px;right: -4px;">
+          <a href="https://hook.io/"><img src="https://hook.io/img/pipe.gif" style="height: 125px;padding-bottom: 10px;padding-top:10px;"></a>
+        </div>
+      </div>
+    
+      <div class="jumbotron">
+
+
+
+
+      <script type="text/javascript">
+      $(document).ready(function(){
+
+        $('#testHook').click(function(){
+          alert($('#dataUrl').val());
+        });
+
+        $('.codeButton').click(function(){
+           if ($('.codeButton').html() === "View Source Code") {
+             $('.codeButton').html('Hide Source Code')
+             $('.gistEmbed').show();
+           } else {
+             $('.codeButton').html('View Source Code');
+             $('.gistEmbed').hide();
+           }
+         });
+
+        // toggle the display of documentation / help
+        /*
+        $('.docsButton').click(function(){
+          if($('.hookDocs .content').css("display") === "none") {
+            $('.hookDocs .content').slideDown(800, function(){
+              $('.docsButton').html('Hide Documentation');
+            });
+          } else {
+            $('.hookDocs .content').slideUp(400, function(){
+              $('.docsButton').html('Show Documentation');
+            });
+          }
+        });
+        */
+
+
+        $('.forkButton').click(function(){
+          document.location = $(this).attr('data-url');
+        });
+
+        $('.editButton').click(function(){
+          document.location = $(this).attr('data-url');
+        });
+
+
+        // switch location.hash for opening docs as link
+        var locations = [
+         "#running",
+         "#forking",
+         "#code",
+         "#data",
+         "#hook",
+         "#schema",
+         "#accept"
+        ];
+        if (locations.indexOf(location.hash) !== -1) {
+          $('.hookDocs .content').slideDown(800, function(){
+            $('.docs').val('Hide Documentation');
+            $(document).scrollTop( $('a[name="' + location.hash.replace('#', '') + '"').offset().top );  
+          });
+        }
+
+      });
+      </script>
+
+
+      <div class="container-fluid">
+      
+      <div class="row">
+        <div class="col-md-12" align="left">
+          <div>
+            <h2>This is the landing page for the <span class="hookName">ifocushook</span> service.</h2>
+          </div>
+          <div>
+            This URL is a fully qualified web-service. If you access this same page from a non-browser source or with a <code>Content-Type: application/json</code> HTTP header you will get a JSON response.
+          </div>
+          <br>
+          <div>For documentation on using <a href="https://hook.io/curl">cURL</a> to access this page click here: <a href="https://hook.io/curl/">https://hook.io/curl</a></div>
+          <br>
+          <p class="smaller"><strong>Note:</strong> Accessing this service url will cause the Hook to run.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="smaller" align="left"><em>The output of this Hook has been rendered in the browser friendly <a href="https://hook.io/themes">Debug Theme</a>. This is completely optional! If you access this same service url from <a href="https://hook.io/curl">cURL</a>, you will get a non-html response. 
+         </em></div>
+        </div>
+      </div>
+
+      <br>
+      <div class="row">
+        <div class="col-md-12" align="left">
+          <form class="themeForm" action="" method="GET">
+            <div class="selectTheme" align="left">
+              You can create a <a href="https://hook.io/themes">custom theme</a> or select a predefined theme using this drop-down select box <strong>Theme:</strong> <select class="themeSelector" name="theme">
+                 <option value="debug">debug</option>
+                 <option value="form">form</option>
+                 <option value="simple-form">simple-form</option>
+                 <!-- ><option value="">custom</option> -->
+                 <option value="none">none</option>
+                 </select>
+             </div>
+         </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2><span class="message success">Hook just executed successfully!</span></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2><a href="#testForm">Test Hook using a Form</a></h2>
+        </div>
+        <div class="col-md-6">
+          <h2><a href="?format=raw">View Raw Response</a></h2>
+        </div>
+      </div>
+
+      <div class="row" align="left">
+        <div class="col-md-12">
+          <h2>Hook Source Code</h2>
+          <div class="gistEmbed"><script src="undefined.js"></script></div>
+        </div>
+      </div>
+
+      <div class="row" align="left">
+         <div class="col-md-12">
+           <div class="notice"></div>
+           <div class="hookResult">
+             
+           </div>
+         </div>
+       </div>
+
+      <div class="row" align="left">
+        <div class="col-md-12">
+          <h2>Hook Output</h2>
+          <p class="smaller">The Hook wrote the following data to the HTTP response:</p>
+          <div class="hookOutput"><textarea cols="80" rows="10" class="hookOutput">Hello, this is a Ruby script.
+Hook[&apos;params&apos;] is populated with request parameters
+{}
+</textarea></div>
+        </div>
+      </div>
+
+      <a name="testForm">
+
+      <br>
+
+      <div class="row" align="left">
+        <div class="col-md-12">
+          <h2>Test Hook</h2>
+          <div class="testForm"><form class="form form-create" action="/ifocus1776/ifocushook" method="POST" enctype="application/x-www-form-urlencoded">
+  <div class="well">
+    <fieldset>
+      <legend>ifocushook test form&#xA0;&#xA0;&#xA0;<button title="Run This Hook" class="run-icon mega-octicon octicon-playback-play"></button></legend>
+      <div class="inputs"><div class="control-group">
+  
+  <div class="controls">
+    <!-- 
+    <div class="input-prepend">
+      <span class="add-on"></span>
+    </div>
+    -->
+    <input type="hidden" placeholder="" class="input-large" name="run" value="true" id="run">
+    <span class="help-inline"></span>
+  </div>
+</div>
+<div class="control-group">
+  <label class="control-label" for="format">format</label>
+  <div class="controls">
+    <span class="help-inline"></span>
+  </div>
+<div class="controls">friendly: <input type="radio" checked name="format" value="friendly"></div><div class="controls">raw: <input type="radio" name="format" value="raw"></div></div><div class="control-group">
+  
+  <div class="controls">
+    <!-- 
+    <div class="input-prepend">
+      <span class="add-on"></span>
+    </div>
+    -->
+    <input type="hidden" placeholder="" class="input-large" name="theme" value="" id="theme">
+    <span class="help-inline"></span>
+  </div>
+</div>
+</div>
+
+      <div class="control-group">
+        <label class="control-label" for="resource_name"></label>
+        <div class="controls">
+          <!-- 
+          <div class="input-prepend">
+            <span class="add-on"></span>
+          </div>
+          -->
+          <input name="submitted" class="btn" type="submit" tabindex="1" value="Test Hook">
+          <span class="help-inline"></span>
+        </div>
+      </div>
+      
+    </fieldset>
+  </div>
+</form></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" align="left">
+          <h2>Hook Debug Console</h2>
+          <p class="smaller">Calling <code>hook.debug()</code> inside the Hook will output to the Debug Console</p>
+          <textarea cols="80" rows="10" class="hookDebugOutput">[]</textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" align="left">
+          <p><em>Rendered with the <a href="https://github.com/bigcompany/hook.io/tree/master/public/themes/debug">Debug Theme</a></em></p>
+        </div>
+      </div>
+
+      </a></div>
+
+      <br>
+
+   </div>
+
+    <div id="footer" class="navbar navbar-fixed-bottom">
+      <!-- <a href=""><img src="./img/block.png"/></a> -->
+      <div class="footerNav">
+        Copyright <a href="https://hook.io/">hook.io</a>
+        <div style="position: absolute;right: 129px;bottom: 4px;"><a href="/modules"><img src="https://hook.io/img/tinynpm.png"></a></div>
+        <div style="position: absolute;right: 69px;bottom: 0px;"><a href="http://github.com/bigcompany/hook.io/issues"><img src="https://hook.io/img/littlecat.png"></a></div>
+        <div style="position: absolute;right: 19px;bottom: 4px;"><a class="myHooks" href="/"><img height="32" width="32" src="https://hook.io/img/pipe.gif"></a></div>
+        </div>
+    </div>
+  </div>
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-56831462-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
