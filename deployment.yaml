@@ -1,19 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vault
+  name: encryption-microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vault
+      app: encryption-microservice
   template:
     metadata:
       labels:
-        app: vault
+        app: encryption-microservice
     spec:
       containers:
-      - name: vault
-        image: hashicorp/vault-k8s:latest
+      - name: encryption-microservice
+        image: gcr.io/my-project/encryption-microservice:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8200
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: 100m
+      nodeSelector:
+        fips: enabled
