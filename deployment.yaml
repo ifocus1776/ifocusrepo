@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fipsencryption-microservice
+      app: fipsencrypt-microservice
   template:
     metadata:
       labels:
-        app: fipsencryption-microservice
+        app: fipsencrypt-microservice
     spec:
       containers:
-      - name: encryption-microservice
-        image: gcr.io/my-project/fipsencrypt-microservice:latest
+      - name: fipsencrypt-microservice
+        image: hub.docker.com/r/hashicorp/vault
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
