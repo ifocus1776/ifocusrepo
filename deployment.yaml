@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: encryption-microservice
+  name: fipsencrypt-microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: encryption-microservice
+      app: fipsencryption-microservice
   template:
     metadata:
       labels:
-        app: encryption-microservice
+        app: fipsencryption-microservice
     spec:
       containers:
       - name: encryption-microservice
-        image: gcr.io/my-project/encryption-microservice:latest
+        image: gcr.io/my-project/fipsencrypt-microservice:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
         resources:
           limits:
-            memory: 512Mi
-            cpu: 100m
+            memory: 156Mi
+            cpu: 120m
       nodeSelector:
         fips: enabled
